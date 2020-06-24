@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    body {
+      width: 100%;
+      margin: 0;
+      height: 100%;
+    }
+    a{
+    vertical-align: center;
+
+    }
+     a:visited {
+    color:unset;
+     }
+
+     td{
+       background-position: center;
+       background-size: contain;
+     }
+
+    .optionsBox {
+      position: absolute;
+      left: 25%;
+      top: 2%;
+      opacity: 110%;
+      display: none;
+      z-index: 2;
+      border: solid 1px #3a3a3a;
+      width: 70%;
+      border-radius: 1em;
+      background-color: #a3a3a3;
+      height: max-content;
+    }
+
+    .imagen {
+      border: solid gray 1px;
+      background-color: gray;
+      height: 100%;
+      width: 100%;
+
+    }
+
+    .boxs {
+      display: grid;
+    
+      grid-template-columns: 33% 33% 33%;
+      grid-gap: 1%;
+      justify-items: center;
+      align-items: center;
+    }
+
+    .boxs * {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+      justify-content: center;
+      width: 80%;
+    }
+
+    .box {
+      align-self: center;
+      width: 100%;
+      text-align: center;
+      align-self: center;
+    }
+
+    .head {
+      font-weight: bold;
+      text-align: center;
+      width: 100%;
+    }
+    .ObjSelect{
+      display: inline-block;
+      margin-top: 1em;
+    }
+    .sel{
+      display: inline-block;
+      margin: 0em 0em 0em 1em;
+      font-weight: bold;
+      background-color: #cccccc;
+      padding: 0.2em 0.5em 0.2em 0.5em;
+      border: solid 1px black ;
+      border-radius: 1em;
+    }
+    .sel:hover{
+      opacity: 75%;
+      border: solid 1px rgb(124, 66, 66);
+    }
+    
+    .activeSel{
+      display: inline-block;
+      margin: 0em 0em 0em 1em;
+      font-weight: bold;
+      background-color: #cccccc;
+      padding: 0.7em;
+      border: solid 1px black ;
+      border-radius: 1em;
+      border-color:crimson;
+      background-color: dimgrey;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      height: 60% !important;
+      width: 100%;
+      justify-content: space-around;
+      margin-top: auto;
+      margin-bottom: auto;
+
+
+    }
+
+    .buttons2 {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      flex: 50% 50%;
+      justify-content: space-around;
+
+    }
+
+
+    textarea {
+      width: 100% !important;
+      border-radius: 1em;
+    }
+    input{
+      border-radius: 1em;
+      width: 50%;
+    }
+
+    .but2 {
+      margin-top:0% ;
+      display: inline-block;
+      align-self: center;
+      padding: 10%;
+      width: 50%;
+      border-radius: 1em;
+      justify-content: center;
+      justify-self: center;
+
+    }
+
+    .but2:hover {
+      color: red;
+      font-weight: bold;
+      opacity: 0.7;
+    }
+
+
+    .container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      margin: 0;
+    }
+
+    .leftside {
+      background-color: #3e3636;
+      width: 20%;
+      height: 100%;
+      overflow: auto;
+    }
+
+    .rightside {
+      background-color: #f5eded;
+      width: 80%;
+      height: 100%;
+    }
+
+    .siteDemo {
+      width: 100%;
+      height: 80%;
+      overflow: auto;
+    }
+
+    .addSome {
+      width: 100%;
+    }
+
+    .htmlCode {
+      float: left;
+      height: 19.8vh;
+      width: 99.9%;
+      display: block;
+      background-color: white;
+      border: solid 1px #3e3e3e;
+      overflow: auto;
+    }
+
+    .tools {
+      height: 150px;
+      width: 100%;
+      border-top: solid #3e3e3e 8px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .tools:hover {
+      opacity: 70%;
+    }
+
+    .headerTool {
+      background-image: url("https://i.hizliresim.com/IdBsCk.png");
+      background-position: center;
+
+    }
+
+    .tools:hover {
+      opacity: 70%;
+    }
+
+    .tools {
+      height: 150px;
+      width: 98%;
+      border-top: solid #3e3e3e 8px;
+      padding: 4px;
+    }
+
+    .imageBox {
+      background-image: url("https://i.hizliresim.com/EsuOTT.png");
+      background-position: center;
+
+    }
+
+    .explainBox {
+      background-image: url("https://i.hizliresim.com/3n83iw.png");
+      background-position: center;
+
+    }
+
+    .productsPage {
+      background-image: url("https://i.hizliresim.com/nIgT3r.png");
+      background-position: center;
+
+    }
+
+    .footer {
+      background-image: url("https://i.hizliresim.com/GDOroF.png");
+      background-position: center;
+
+    }
+
+    .but {
+      height: 20px;
+      width: 40%;
+      margin: 10px 10px 0 10px;
+    }
+
+    .but:hover {
+      opacity: 80%;
+    }
+
+    /* Drag and Drop Style  */
+    .fill {
+      cursor: pointer;
+    }
+
+    .empty {
+      cursor: auto;
+    }
+
+    .hold {
+      border: solid #cccccc 4px;
+    }
+
+    .hover {
+      background: #f4f3f4;
+      border-style: dashed;
+    }
+
+    .invisible {
+      display: none;
+    }
+
+    .leftcontainer {
+      height: 95%;
+      display: flex;
+      flex-flow: row wrap;
+    }
+
+    .buttons {
+      display: flex;
+      height: 50px;
+    }
+    .logos{
+      display: grid;
+      grid-template-columns: 15% 25% 15% 25%;
+      justify-content: space-around;
+      margin-left: auto;
+    margin-right: auto;
+    }
+    .bigBox{
+      grid-area: 2/1/3/3;
+      justify-content: center;
+      justify-items: center;
+    }
+
+    .textBox {
+      grid-column-start: 1;
+      grid-column-end: 3;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <div class="optionsBox">
+    <div class="imagen">
+      <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
+        <tr>
+          <td align="center" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" id="emailContainer" height="100%">
+              <tr height="100%">
+                <td align="center" valign="top" height="100%">
+                  <table width="100%" height="100%">
+                    <tr style="height: 20%;;">
+                      <td class="empty" style="background-color: #3e3636; width: 100%; ">
+                        <table style="width: 100%;  " class="addSome2"></table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="ObjSelect">
+      <div class="selection1 activeSel">1</div>
+      <div class="selection2 sel">2</div>
+      <div class="selection3 sel">3</div>
+      <div style="display: none;" class="selection4 sel">4</div>
+      <div style="display: none;"class="selection5 sel">5</div>
+    </div>
+    
+    <div class="boxs">
+      <div class="box">
+        <div class="head">Background-Color</div>
+        <input type="text " class="bgcolorInput" placeholder="#3a3a3a" />
+      </div>
+
+      <div class="box hidePrice" style="display: none;">
+        <div class="head">Price-Color</div>
+        <input type="text " class="priceColor" placeholder="#3a3a3a" />
+        <div class="head">Price</div>
+        <input type="text " class="price" placeholder="$1999" />
+
+      </div>
+
+      <div class="box">
+        <div class="head">Text-Color</div>
+        <input type="text" class="textcolorInput" placeholder="#a3a3a3" />
+      </div>
+      <div class="box">
+        <div class="head">Background-Url</div>
+        <input type="text" class="bgUrlInput" placeholder="https://picsum.photos/200" />
+      </div>
+     <div class="box bigBox">
+      <div class="logos">
+        <div class="head">Text-Color</div>
+        <input type="text" class="logo1" placeholder="#a3a3a3" />
+        <div class="head">Text-Color</div>
+        <input type="text" class="logo2" placeholder="#a3a3a3" />
+        <div class="head">Text-Color</div>
+        <input type="text" class="logo3" placeholder="#a3a3a3" />
+        <div class="head">Text-Color</div>
+        <input type="text" class="logo4" placeholder="#a3a3a3" />
+      </div>
+      <div class="textBox">
+        <div class="head">Text</div>
+        <textarea name="addingText" cols="45" rows="5" class="textInput"></textarea>
+      </div>
+     </div>
+      <div class="buttons">
+        <button class="but2 tryButton">Try-Now</button>
+        <button class="but2 enterButton">Enter</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="leftside">
+      <div class="leftcontainer">
+        <div name="header" class="headerTool tools fill" draggable="true"></div>
+        <div name="imageBox" class="imageBox tools fill" draggable="true"></div>
+        <div name="explainBox" class="explainBox tools fill" draggable="true"></div>
+        <div name="productsBox" class="productsPage tools fill" draggable="true"></div>
+        <div name="footer" class="footer tools fill" draggable="true"></div>
+      </div>
+      <div class="buttons2" draggable="false">
+        <button class="copy but">Copy All Code</button>
+        <button class="reset but">Reset to Page</button>
+      </div>
+      <button draggable="false" class="but" style="margin-left:30%"><a href="/login">Sign Out </a> </button>
+    </div>
+    <div class="rightside">
+      <div class="siteDemo">
+        <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
+          <tr>
+            <td align="center" valign="top">
+              <table border="0" cellpadding="0" cellspacing="0" width="100%" id="emailContainer" height="100%">
+                <tr height="100%">
+                  <td align="center" valign="top" height="100%">
+                    <table width="100%" height="100%">
+                      <tr style="height: 20%;;">
+                        <td class="empty" style="background-color: #3e3636; width: 100%;">
+                          <table class="addSome" width="100%"></table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="htmlCode"></div>
+      <input type="text" class="inputCopy" style="display:none"></input>
+    </div>
+  </div>
+
+
+</body>
+
+<script>
+  //Varaibles
+
+  
+  //gray
+  var gray = "5d5d5a";
+  //white
+  var white = "fbf9fa"
+  //pink  
+  var pink = "fc5185"
+  //others    
+  var pink2 = "#fccde2;"
+
+  var addHtmlCode = "";
+  var addcssCode = "";
+  var addname="";
+  const attributeBut = document.querySelector(".attributeButton")
+  const optionsBox = document.querySelector(".optionsBox")
+  const preView = document.querySelector(".preView")
+
+  const resetVar = () => {
+  document.querySelectorAll(".box")[0].style.display=""
+  document.querySelectorAll(".box")[3].children[0].innerText="Background-Url"
+
+  
+}
+
+
+  var bgColor = "#3a3a3a";
+  var textColor = "#FFFFFF"
+  var bgUrl = "http://source.unsplash.com/random/720x250";
+  var text = "Logo"
+  var Page=1;
+  
+
+
+
+  var logo1 = "https://source.unsplash.com/random/32x32",
+    logo2 = "https://source.unsplash.com/random/33x33",
+    logo3 = "https://source.unsplash.com/random/33x32",
+    logo4 = "https://source.unsplash.com/random/32x33";
+
+
+  var longText = `Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Nobis dolore adipisci iste itaque quaerat maxime
+              dignissimos quos delectus. Doloremque rem voluptatum
+              assumenda maxime dignissimos odit magni dicta atque nam
+              omnis?`
+
+
+
+//ProductPage Object
+function Obj2 (img,proText,protextColor,price,priceColor){
+this.img=img;
+this.proText=proText;
+this.protextColor=protextColor;
+this.price=price;
+this.priceColor=priceColor;
+}
+var Pro1=new Obj2(
+//İmage 1
+`http://source.unsplash.com/random/400x600`,
+//Text 1
+`Lorem ipsum dolor sit amet consectetur adipisicing elit.
+Nobis dolore adipisci iste itaque quaerat maxime
+dignissimos quos delectus. Doloremque rem voluptatum
+assumenda maxime dignissimos odit magni dicta atque nam
+omnis?`,
+//Text Color 1
+`white`,
+//Price 1
+`1199$`,
+//Price Color 1
+pink2
+);
+var Pro2=new Obj2(
+//İmage 2
+`http://source.unsplash.com/random/401x601`,
+//Text 2
+`Lorem ipsum dolor sit amet consectetur adipisicing elit.
+Nobis dolore adipisci iste itaque quaerat maxime
+dignissimos quos delectus. Doloremque rem voluptatum
+assumenda maxime dignissimos odit magni dicta atque nam
+omnis?`,
+//Text Color 2
+`white`,
+//Price 2
+`2199$`,
+//Price Color 2
+pink2 
+);
+var Pro3=new Obj2(
+//İmage 3
+`http://source.unsplash.com/random/401x602`,
+//Text 3
+`Lorem ipsum dolor sit amet consectetur adipisicing elit.
+Nobis dolore adipisci iste itaque quaerat maxime
+dignissimos quos delectus. Doloremque rem voluptatum
+assumenda maxime dignissimos odit magni dicta atque nam
+omnis?`,
+//Text Color 3
+`white`,
+//Price 3
+`2999$`,
+//Price Color 3
+pink2
+);
+
+ProObject=[Pro1,Pro2,Pro3]
+
+
+  //Code View
+  var htmlCode = document.body.querySelector(".htmlCode");
+  var siteDemo = document.body.querySelector(".siteDemo");
+
+  htmlCode.innerText =
+    `<!DOCTYPE html
+            PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+            <html xmlns="http://www.w3.org/1999/xhtml">
+
+            <head>
+              <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+              <meta name="format-detection" content="telephone=no" />
+              <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;" />
+              <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+
+              <title>Page title</title>
+              <style type="text/css">
+                  @media screen and (max-width: 630px) {
+                    @import url(http://fonts.googleapis.com/css?family=Roboto:300);
+
+                    #outlook a {
+                      padding: 0;
+                    }
+
+                    body {
+                      width: 100% !important;
+                      -webkit-text-size-adjust: 100%;
+                      -ms-text-size-adjust: 100%;
+                      margin: 0;
+                      padding: 0;
+                      font-family: Roboto, sans-serif;
+                    }
+
+                    ` +
+    addcssCode +
+    `
+                }
+            </style>
+            </head>
+            <body style="padding:0; margin:0">
+                <table
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+              height="100%"
+              width="100%"
+              id="bodyTable"
+                >
+                    <tr>
+                        <td align="center" valign="top">
+                            <table
+                    border="0"
+                    cellpadding="0"
+                    cellspacing="0"
+                    width="100%"
+                    id="emailContainer"
+                            >
+            ` +
+    siteDemo.innerHTML +
+    `
+                            </table>
+                       </td>
+                    </tr>
+                </table>
+            </body` +
+    `>
+            </html>`;
+
+  //Object - Add Function
+  function Obj(name, html4, css2, bgDefault, bgColorDefalut, colorDefault, textDefault) {
+    this.name = name;
+    this.html4 = html4;
+    this.css2 = css2;
+  }
+
+  var header = new Obj(
+    "header",
+    // Html4-header
+    `<tr>
+                <td align="center" width="100%" style="background-color:${bgColor}" >
+                  <table align="center">
+                    <tr>
+                      <td
+                        width="64px"
+                        height="64px"
+                        class="logo"
+                        background="${bgUrl}"
+                      ></td>
+                      <td>
+                        <a
+                          href="#"
+                          style="text-decoration: none; font-weight: bold; font-size: 2em; margin-top=auto;
+                        margin-bottom=auto
+                        margin-left: 2em;"
+                          class="headerFont"
+                        >
+                          <span
+                            style="color:${textColor}; font-size: 0.7em;"
+                            class="headerSpan"
+                            >${text}</span
+                          >
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+                    `,
+    //Css2-header
+    `
+                    *[class="logo"] {
+                    margin: 0em !important;
+                    padding: 0em !important;
+                    width: 32px !important;
+                    margin-left: 1em !important;
+                  }
+
+                  *[class="headerFont"] {
+                    font-size: 16px !important;
+                    margin: 0em !important;
+                    padding: 0em !important;
+                  }
+                    `,
+    //Default Background Url
+    `http://source.unsplash.com/random/64x64`,
+    //Default Background Color                    
+    `${gray}`,
+    //Default Color
+    `${pink}`,
+    //Default text
+    `Brand`,
+  );
+
+  var imageBox = new Obj(
+    "imageBox",
+    //Html4-imageBox
+    `
+      <tr>
+          <td align="center" valign="top" width="100%">
+            <table width="100%">
+              <tr>
+                <!--image-->
+                <td
+                  background="${bgUrl}"
+                  style="width:100% ;background-size:100% 100%; height: 450px"
+                  class="topImages"
+                >
+                  <!--[if gte mso 9]>
+                      <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:640px;">
+                          <v:fill type="tile" src="images/header-bg.jpg" color="#3b464e" />
+                          <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
+                              <![endif]-->
+                  <p
+                    style="background-position: center; text-align: center; color: ${textColor}; font-size: large;"
+                    class="imageText"
+                  >
+                    ${longText}
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        `,
+    //Css2-imageBox
+    `
+        *[class="topImages"] {
+                width: 100% !important;
+                height: 450px !important;
+                display: block !important;
+                text-align: center !important;
+                background-position: center !important;
+                background-repeat: no-repeat !important;
+                background-size: cover !important;
+              }
+
+              *[class="imageText"] {
+                margin-top: 20% !important;
+                margin-bottom: 20% !important;
+              }
+
+        `, `http://source.unsplash.com/random/1920x480`
+  );
+  var explainBox = new Obj(
+    "explainBox",
+    //html4-explainBox
+    `
+           <tr>
+                  <td width="100%">
+                    <table width="100%" height="400px">
+                      <tr>
+                        <td
+                      width="50%"
+                      background="${bgUrl}"
+                      style="background-size: cover;background-position: center !important;"
+                      class="explainBoxTd"
+                        ></td>
+                        <td  width="50%"
+                      align="center"
+                      style="background-color: ${bgColor};"
+                      class="explainBoxTd">
+                          <p style="margin: 0 10px 0 10px ; color:${textColor}">
+                            ${longText}
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                `,
+    //css2-explainBox
+    `
+          *[class="explainBoxTd"] {
+              display: block !important;
+              width: 100% !important;
+              height: 200px !important;
+              background-size: initial !important;
+              background-position: center !important;
+              background-repeat: no-repeat !important;
+            }
+                `,
+    `https://source.unsplash.com/random/1024x400`
+  );
+
+  var productsBox = new Obj(
+    `productsBox`,
+    //html4-productPage
+    `
+            <tr>
+              <td align="center" valign="top" width="100%" >
+                <table>
+                  <tr>
+                    <td width="33% " class="itemBox">
+                      <!--Boxe1-->
+                      <table style="width:100%;">
+                        <tr>
+                          <td
+                            background="${ProObject[0].img}"
+                            width="100%"
+                            height="500px"
+                            style="background-position: center; background-repeat: no-repeat; "
+                            class="boxImg"
+                          ></td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 2em; text-align: center;color:${ProObject[0].protextColor}">
+                            ${ProObject[0].proText}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td
+                            style="text-align: center; background-color: ${ProObject[0].priceColor};"
+                          >
+                            Price: <span style="font-weight: bold;"> ${ProObject[0].price}</span>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td style="width: 33%;" class="itemBox">
+                      <!--Boxe2-->
+                      <table style="width: 100%;">
+                        <tr>
+                          <td
+                            background="${ProObject[1].img}"
+                            width="100%"
+                            height="500px"
+                            style="background-position: center; background-repeat: no-repeat;"
+                            class="boxImg"
+                          ></td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 2em; text-align: center; color:${ProObject[1].protextColor}">
+                            ${ProObject[1].proText}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td
+                            style="text-align: center; background-color: ${ProObject[1].priceColor};"
+                          >
+                            Price: <span style="font-weight: bold;"> ${ProObject[1].price}</span>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td style="width:33%;" class="itemBox">
+                      <!--Boxe3-->
+                      <table style="width: 100%;">
+                        <tr>
+                          <td
+                            background="${ProObject[2].img}"
+                            width="100%"
+                            height="500px"
+                            style="background-position: center; background-repeat: no-repeat;"
+                            class="boxImg"
+                          ></td>
+                        </tr>
+                        <tr>
+                          <td  style="padding: 2em; text-align: center; color:${ProObject[2].protextColor}">
+                            ${ProObject[2].proText}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td
+                            style="text-align: center; background-color: ${ProObject[2].priceColor};"
+                          >
+                            Price: <span style="font-weight: bold;"> ${ProObject[2].price}</span>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+      `,
+    //css2-productBox
+    `
+          *[class="itemBox"] {
+              display: block !important;
+              width: 100% !important;
+            }
+
+            *[class="boxImg"] {
+              height: 400px !important;
+              background-size: cover !important;
+              display: block !important;
+            }
+
+      `,
+    [`https://source.unsplash.com/random/400x600`,
+      `https://source.unsplash.com/random/450x650`,
+      `https://source.unsplash.com/random/500x700 `
+    ]
+  );
+
+  var footer = new Obj(
+    `footer`,
+    //html4-footer
+    `
+      <tr>
+        <td
+          align="center"
+          valign="top"
+          style=" background-color: ${bgColor} ;"
+          class="footerTool"
+        >
+          <table style="width: 100%; ">
+            <tr>
+              <td>
+                <!--Logo-->
+
+                <table
+                  valign="middle"
+                  style="align-self: center; float: left;"
+                  height:50px;
+                >
+                  <tr>
+                    <td
+                      align="center"
+                      valign="middle"
+                      width="45px"
+                      height="45px"
+                      background="${bgUrl}"
+                      style="background-size: contain;"
+                      class="logo"
+                    ></td>
+                    <td width="90%">
+                      <a
+                        href="#"
+                        style="text-decoration: none; font-weight: bold; font-size: 2em; vertical-align: -20% ;
+                        margin-left: 2em;"
+                        class="footerFont"
+                      >
+                        <span
+                          style="color:${textColor}; font-size: 0.7em;"
+                          class="headerSpan"
+                          >${text}</span
+                        >
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+
+                <!--Media-->
+                <table style="float: right;" class="socialMedia">
+                  <tr>
+                    <td>
+                      <table valign="middle" align="center">
+                        <tr>
+                          <td
+                            style="width: 32px; height: 32px; margin: 0 1em 0 0;"
+                            background="${logo1}"
+                          ></td>
+                          <td
+                            style="width: 32px; height: 32px; margin: 0 1em 0 0;"
+                            background="${logo2}"
+                          ></td>
+                          <td
+                            style="width: 32px; height: 32px; margin: 0 1em 0 0;"
+                            background="${logo3}"
+                          ></td>
+                          <td
+                            style="width: 32px; height: 32px; margin: 0 1em 0 0;"
+                            background="${logo4}"
+                          ></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    `,
+    //css2-footer
+    `
+    *[class="footerTool"] {
+              width: 100%;
+              display: block;
+              font-size: 0.7em;
+            }
+
+            *[class="socialMedia"] {
+              width: 100%;
+              align-items: center;
+            }
+            *[class="logo"] {
+              margin: 0em !important;
+              padding: 0em !important;
+              width: 32px !important;
+              margin-left: 1em !important;
+            }
+
+            *[class="footerFont"] {
+              font-size: 16px !important;
+              margin: 0em !important;
+              padding: 0em !important;
+            }
+            
+
+    `,
+    [`https://source.unsplash.com/random/45x45`,
+      `https://source.unsplash.com/random/32x32`,
+      `https://source.unsplash.com/random/32x32`,
+      `https://source.unsplash.com/random/32x32`,
+      `https://source.unsplash.com/random/32x32`
+    ]
+
+  );
+
+  //add all elements to array
+  var toolElements = [];
+  toolElements.push(header, imageBox, explainBox, productsBox, footer);
+
+  //reset button
+  const copyBut = document.querySelector(".copy");
+  const reset = document.querySelector(".reset");
+  const addSome = document.querySelector(".addSome");
+  const addSome2 = document.querySelector(".addSome2")
+  const tryButton = document.querySelector(".tryButton")
+  const enterButton = document.querySelector(".enterButton")
+
+  const bgcolorInput = document.querySelector(".bgcolorInput")
+  const bgUrlInput = document.querySelector(".bgUrlInput")
+  const textcolorInput = document.querySelector(".textcolorInput")
+  const textInput = document.querySelector(".textInput")
+  const priceColorInput =document.querySelector(".priceColor")
+  const priceInput=document.querySelector(".price")
+
+  const logoInput1=document.querySelector(".logo1");
+  const logoInput2=document.querySelector(".logo2");
+  const logoInput3=document.querySelector(".logo3");
+  const logoInput4=document.querySelector(".logo4");
+
+  const selOptions=document.querySelector(".ObjSelect")
+
+  const selection1=document.querySelector(".selection1")
+  const selection2=document.querySelector(".selection2")
+  const selection3=document.querySelector(".selection3")
+  const selection4=document.querySelector(".selection4")
+  const selection5=document.querySelector(".selection5")
+
+  const defaultBox=document.querySelector(".box").style
+  const defaultBoxs=document.querySelector(".boxs").style
+  const defaultTextBox=document.querySelector(".textBox").style
+  const defaultButtons=document.querySelector(".buttons").style
+  const defaultButs=document.querySelector(".but2").style
+
+  const defaultInput1=document.querySelectorAll(".box")[0].children[0].textContent
+  const defaultInput2=document.querySelectorAll(".box")[1].children[0].textContent
+  const defaultInput3=document.querySelectorAll(".box")[1].children[2].textContent
+  const defaultInput4=document.querySelectorAll(".box")[2].children[0].textContent
+  const defaultInput5=document.querySelectorAll(".box")[3].children[0].textContent
+
+  const defaultPlaceholder1=document.querySelectorAll("input")[0].placeholder
+  const defaultPlaceholder2_1=document.querySelectorAll("input")[1].placeholder
+  const defaultPlaceholder2_2=document.querySelectorAll("input")[2].placeholder
+  const defaultPlaceholder3=document.querySelectorAll("input")[3].placeholder
+  const defaultPlaceholder4=document.querySelectorAll("input")[4].placeholder
+
+  var tutucuCss = ""
+  var tutucuHtml = ""
+
+  let addSum = 0;
+  var addSomeHtml = addSome.innerHTML;
+
+
+  const inputCopy = document.querySelector(".inputCopy")
+  let copyCode = "";
+
+  copyBut.addEventListener("click", function (e) {
+    copyCode = htmlCode.innerText;
+    inputCopy.value = copyCode
+    inputCopy.style = "display:block"
+    inputCopy.select();
+    inputCopy.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    inputCopy.style = "display:none"
+
+    /* Alert the copied text */
+    // alert("Text Coppied");
+  });
+
+  reset.addEventListener("click", function (e) {
+    location.reload();
+  });
+
+  const fill = document.querySelectorAll(".fill");
+  const empties = document.querySelectorAll(".empty");
+  draggeditem = null;
+  //Fill Listeners
+
+  for (let i = 0; i < fill.length; i++) {
+    const item = fill[i];
+
+    item.addEventListener("dragstart", function (e) {
+      draggedItem = item;
+      setTimeout(() => {
+        item.style.display = "block";
+        resetAllInputs();
+        resetSelection();
+      }, 0);
+    });
+
+    item.addEventListener("dragend", function (e) {
+      setTimeout(() => {
+        draggedItem.style.display = "block";
+        draggedItem = null;
+      }, 0);
+    });
+
+    for (let j = 0; j < empties.length; j++) {
+      const list = empties[j];
+      list.addEventListener("dragover", function (e) {
+        e.preventDefault();
+        addSum = 0;
+      });
+      list.addEventListener("dragenter", function (e) {
+        e.preventDefault();
+        this.style.backgroundColor = "rgba(63, 55, 55, 0.8)";
+      });
+      list.addEventListener("dragleave", function (e) {
+        this.style.backgroundColor = "rgba(63, 55, 55, 1)";
+      });
+      list.addEventListener("drop", function (e) {
+
+        optionsBox.style.display = "block"
+
+        if (addSum == 0) {
+          let a = 0;
+          toolElements.forEach((element) => {
+            a++;
+            if (draggedItem.getAttribute("name") == element.name) {
+              //Değişim Noktası
+
+
+              addname=element.name;
+              
+              addcssCode += element.css2;
+              addSome2.innerHTML += element.html4;
+
+              tutucuCss = addcssCode
+              tutucuHtml = element
+
+              document.querySelector(".rightside").style.opacity = "30%"
+
+//css Patlama Sorunu Çözüldü
+              setTimeout(() => {
+                if(addname==header.name){
+
+              headerPage()
+
+              }
+              else if(addname==imageBox.name){
+               imagePage();
+               
+
+              }
+              else if(addname==explainBox.name){
+               explainPage();
+              }
+
+              else if(addname==productsBox.name){
+
+              productsPage();
+
+            
+              }
+              else if (addname=footer.name) {
+
+              footerPage();
+
+              }
+
+              
+              }, 0);
+
+
+
+              tryButton.addEventListener("click", () => {
+addSome2.innerHTML = ""
+
+ bgColor = bgcolorInput.value
+ bgUrl = bgUrlInput.value
+ textColor = textcolorInput.value
+ text = textInput.value
+ price = priceInput.value
+ priceColor=priceColorInput.value
+
+ logo1 = logoInput1.value
+ logo2 = logoInput2.value
+ logo3 = logoInput3.value
+ logo4 = logoInput4.value
+
+
+   if(addname==header.name){
+     addcssCode += header.css2;
+     addSome2.innerHTML=`<tr>
+ <td align="center" width="100%" style="background-color:${bgColor}" >
+   <table align="center">
+     <tr>
+       <td
+         width="64px"
+         height="64px"
+         class="logo"
+         background="${bgUrl}"
+       ></td>
+       <td>
+         <a
+           href="#"
+           style="text-decoration: none; font-weight: bold;background-position: center;
+            background-size: contain; font-size: 2em; vertical-align: 80% ; color:${textColor};
+         margin-left: 2em;"
+           class="headerFont"
+         >
+             ${text}
+         </a>
+       </td>
+     </tr>
+   </table>
+ </td>
+</tr>
+     `
+    
+   }
+   else if(addname==imageBox.name){
+     addcssCode += imageBox.css2;
+     addSome2.innerHTML=`
+<tr>
+<td align="center" valign="top" width="100%">
+<table width="100%">
+<tr>
+ <!--image-->
+ <td
+   background="${bgUrl}"
+   style="width:100% ;background-size:100% 100%; height: 450px"
+   class="topImages"
+ >
+   <!--[if gte mso 9]>
+       <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:640px;">
+           <v:fill type="tile" src="images/header-bg.jpg" color="#3b464e" />
+           <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
+               <![endif]-->
+   <p
+     style="background-position: center; text-align: center; color: ${textColor}; font-size: large;"
+     class="imageText"
+   >
+     ${longText}
+   </p>
+ </td>
+</tr>
+</table>
+</td>
+</tr>
+`
+                 
+   }
+   else if(addname==explainBox.name){
+     addcssCode += explainBox.css2;
+     addSome2.innerHTML=`
+<tr>
+   <td width="100%">
+     <table width="100%" height="400px">
+       <tr>
+         <td
+       width="50%"
+       background="${bgUrl}"
+       style="background-size: cover;background-position: center !important;"
+       class="explainBoxTd"
+         ></td>
+         <td  width="50%"
+       align="center"
+       style="background-color: ${bgColor};"
+       class="explainBoxTd">
+           <p style="margin: 0 10px 0 10px ; color:${textColor}">
+             ${longText}
+           </p>
+         </td>
+       </tr>
+     </table>
+   </td>
+ </tr>
+ `
+         
+   }
+   else if(addname==productsBox.name){
+
+
+    switch (Page) {
+      case 1:
+        
+      ProObject[0].img=bgUrl
+      ProObject[0].proText=text
+      ProObject[0].protextColor=textColor
+      ProObject[0].price=price
+      ProObject[0].priceColor=priceColor
+
+        break;
+    
+      case 2:
+
+      ProObject[1].img=bgUrl
+      ProObject[1].proText=text
+      ProObject[1].protextColor=textColor
+      ProObject[1].price=price
+      ProObject[1].priceColor=priceColor
+        
+        break;
+
+      case 3:
+
+      ProObject[2].img=bgUrl
+      ProObject[2].proText=text
+      ProObject[2].protextColor=textColor
+      ProObject[2].price=price
+      ProObject[2].priceColor=priceColor
+        
+        break;
+             
+      default :
+        break;
+    }
+
+     addcssCode += productsBox.css2;
+     console.log(addcssCode)
+     addSome2.innerHTML=`
+            <tr>
+              <td align="center" valign="top" width="100%" >
+                <table width="100%">
+                  <tr>
+                    <td width="33% " class="itemBox">
+                      <!--Boxe1-->
+                      <table style="width:100%;">
+                        <tr>
+                          <td
+                            background="${ProObject[0].img}"
+                            width="100%"
+                            height="500px"
+                            style="background-position: center; background-repeat: no-repeat; "
+                            class="boxImg"
+                          ></td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 2em; text-align: center;color:${ProObject[0].protextColor}">
+                            ${ProObject[0].proText}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td
+                            style="text-align: center; background-color: ${ProObject[0].priceColor};"
+                          >
+                            Price: <span style="font-weight: bold;"> ${ProObject[0].price}</span>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td style="width: 33%;" class="itemBox">
+                      <!--Boxe2-->
+                      <table style="width: 100%;">
+                        <tr>
+                          <td
+                            background="${ProObject[1].img}"
+                            width="100%"
+                            height="500px"
+                            style="background-position: center; background-repeat: no-repeat;"
+                            class="boxImg"
+                          ></td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 2em; text-align: center; color:${ProObject[1].protextColor}">
+                            ${ProObject[1].proText}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td
+                            style="text-align: center; background-color: ${ProObject[1].priceColor};"
+                          >
+                            Price: <span style="font-weight: bold;"> ${ProObject[1].price}</span>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td style="width:33%;" class="itemBox">
+                      <!--Boxe3-->
+                      <table style="width: 100%;">
+                        <tr>
+                          <td
+                            background="${ProObject[2].img}"
+                            width="100%"
+                            height="500px"
+                            style="background-position: center; background-repeat: no-repeat;"
+                            class="boxImg"
+                          ></td>
+                        </tr>
+                        <tr>
+                          <td  style="padding: 2em; text-align: center; color:${ProObject[2].protextColor}">
+                            ${ProObject[2].proText}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td
+                            style="text-align: center; background-color: ${ProObject[2].priceColor};"
+                          >
+                            Price: <span style="font-weight: bold;"> ${ProObject[2].price}</span>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+      `
+     
+   }
+   else if(addname==footer.name){
+     addcssCode += footer.css2;
+     addSome2.innerHTML=`
+
+<tr>
+<td
+align="center"
+valign="top"
+style=" background-color: ${bgColor} ;"
+class="footerTool"
+>
+<table style="width: 100%; ">
+<tr>
+<td>
+ <!--Logo-->
+
+ <table
+   valign="middle"
+   style="align-self: center; float: left;"
+   height:50px;
+ >
+   <tr>
+     <td
+       align="center"
+       valign="middle"
+       width="45px"
+       height="45px"
+       background="${bgUrl}"
+       style="background-size: contain;"
+       class="logo"
+     ></td>
+     <td width="90%">
+       <a
+         href="#"
+         style="text-decoration: none; font-weight: bold; font-size: 2em; vertical-align: -20% ;
+         margin-left: 2em;"
+         class="footerFont"
+       >
+         <span
+           style="color:${textColor}; font-size: 0.7em;"
+           class="headerSpan"
+           >${text}</span
+         >
+       </a>
+     </td>
+   </tr>
+ </table>
+
+ <!--Media-->
+ <table style="float: right;" class="socialMedia">
+   <tr>
+     <td>
+       <table valign="middle" align="center">
+         <tr>
+           <td
+             style="width: 32px; height: 32px; margin: 0 1em 0 0;"
+             background="${logo1}"
+           ></td>
+           <td
+             style="width: 32px; height: 32px; margin: 0 1em 0 0;"
+             background="${logo2}"
+           ></td>
+           <td
+             style="width: 32px; height: 32px; margin: 0 1em 0 0;"
+             background="${logo3}"
+           ></td>
+           <td
+             style="width: 32px; height: 32px; margin: 0 1em 0 0;"
+             background="${logo4}"
+           ></td>
+         </tr>
+       </table>
+     </td>
+   </tr>
+ </table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+`
+   }
+
+   
+
+})
+              
+
+
+// Buttons 
+enterButton.addEventListener("click", function (e) {
+
+                optionsBox.style.display = "none"
+                document.querySelector(".rightside").style.opacity = "100%"
+
+                addSome.innerHTML+=addSome2.innerHTML;
+
+
+                addSome2.innerHTML = ""
+
+              })
+              
+selection1.addEventListener("click", function () {
+              selection1.className="selection1 activeSel"
+              selection2.className="selection2 sel"
+              selection3.className="selection3 sel"   
+              Page=1;    
+      
+})
+selection2.addEventListener("click", function () {
+              selection1.className="selection1 sel"
+              selection2.className="selection2 activeSel"
+              selection3.className="selection3 sel"       
+              Page=2;
+        
+})
+selection3.addEventListener("click", function () {
+              selection1.className="selection1 sel"
+              selection2.className="selection2 sel"
+              selection3.className="selection3 activeSel"       
+              resetAllInputs();
+              Page=3;
+})
+selection4.addEventListener("click", function () {
+              selection4.className="selection4 activeSel"
+              selection5.className="selection5 sel"
+              Page=4;
+              resetAllInputs();
+              footerPage();
+              
+
+
+})
+
+selection5.addEventListener("click", function () {
+        
+  selection4.className="selection4 sel"
+  selection5.className="selection5 activeSel" 
+              Page=5;
+              resetAllInputs();
+              mediaPage();
+
+
+})
+
+
+            }
+
+            resetVar();
+
+
+          });
+
+          //Html 4 ve css2 kodunu tekrar yazdırma
+
+          htmlCode.innerText =
+            `<!DOCTYPE html
+            PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+            <html xmlns="http://www.w3.org/1999/xhtml">
+
+            <head>
+              <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+              <meta name="format-detection" content="telephone=no" />
+              <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;" />
+              <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+
+              <title>Page title</title>
+              <style type="text/css">
+                  @media screen and (max-width: 630px) {
+                    @import url(http://fonts.googleapis.com/css?family=Roboto:300);
+
+                    #outlook a {
+                      padding: 0;
+                    }
+
+                    body {
+                      width: 100% !important;
+                      -webkit-text-size-adjust: 100%;
+                      -ms-text-size-adjust: 100%;
+                      margin: 0;
+                      padding: 0;
+                      font-family: Roboto, sans-serif;
+                    }
+
+                    ` +
+            addcssCode +
+            `
+                }
+            </style>
+            </head>
+            <body style="padding:0; margin:0">
+                <table
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+              height="100%"
+              width="100%"
+              id="bodyTable"
+                >
+                    <tr>
+                        <td align="center" valign="top">
+                            <table
+                    border="0"
+                    cellpadding="0"
+                    cellspacing="0"
+                    width="100%"
+                    id="emailContainer"
+                            >
+            ` +
+            siteDemo.innerHTML +
+            `
+                            </table>
+                       </td>
+                    </tr>
+                </table>
+            </body` +
+            `>
+            </html>`;
+          //Html 4 ve css2 kodunu tekrar yazdırma
+        }
+        addSum++;
+        this.style.backgroundColor = "rgba(63, 55, 55, 1)";
+      });
+    }
+  }
+
+
+
+//funcitons
+const defaultsAll=()=>{
+
+  document.querySelector(".logos").style.display="none"
+
+    document.querySelectorAll(".box")[0].children[0].textContent=defaultInput1
+    document.querySelectorAll(".box")[1].children[0].textContent=defaultInput2
+    document.querySelectorAll(".box")[1].children[2].textContent=defaultInput3
+    document.querySelectorAll(".box")[2].children[0].textContent=defaultInput4
+    document.querySelectorAll(".box")[3].children[0].textContent=defaultInput5
+
+    document.querySelectorAll(".box").style=defaultBox
+    document.querySelectorAll(".boxs").style=defaultBoxs
+    document.querySelector(".buttons").style=defaultButtons
+    document.querySelectorAll(".but2")[1].style=defaultButs
+    document.querySelector(".textBox").style=defaultTextBox
+    document.querySelector(".buttons").style.gridRowStart="2"
+    document.querySelector(".buttons").style.gridRowEnd="3"
+    document.querySelector(".buttons").style.gridColumnStart="3"
+    document.querySelector(".buttons").style.gridColumnend="4"
+    document.querySelector(".boxs").style.gridTemplateColumns="33% 33% 33%"
+
+
+    document.querySelector(".hidePrice").display=""
+    document.querySelector(".hidePrice").children[0].style.display=""
+    document.querySelector(".hidePrice").children[1].style.display=""
+    document.querySelector(".hidePrice").children[2].style.display=""
+    document.querySelector(".hidePrice").children[3].style.display=""
+}
+
+  const headerPage = () => {
+    Price=1;
+    defaultsAll();
+
+    document.querySelectorAll(".box")[3].children[0].textContent="Logo-Url"
+
+
+    selOptions.style.display="none"
+    document.querySelector(".hidePrice").style.display="none"
+
+    document.querySelectorAll(".box")[0].style.display=""
+
+
+
+
+
+  }
+  const imagePage= () => {
+    defaultsAll();
+
+      document.querySelectorAll(".box")[0].style.display="none"
+      selOptions.style.display="none"
+      document.querySelector(".hidePrice").style.display="none"
+
+      document.querySelector(".buttons").style.gridRowStart="1"
+      document.querySelector(".buttons").style.gridRowEnd="3"
+      document.querySelector(".buttons").style.gridColumnStart="3"
+      document.querySelector(".buttons").style.gridColumnend="4"
+      
+      document.querySelectorAll(".box")[0].children[0].textContent="";
+      document.querySelectorAll(".box")[1].children[0].textContent="";
+  }
+ 
+  const explainPage = () => {
+    defaultsAll();
+    
+    selOptions.style.display="none"
+    document.querySelector(".hidePrice").style.display="none"
+
+    document.querySelectorAll(".box")[0].style.display=""
+    document.querySelector(".buttons").style.gridRowStart="2"
+    document.querySelector(".buttons").style.gridRowEnd="3"
+    document.querySelector(".buttons").style.gridColumnStart="3"
+    document.querySelector(".buttons").style.gridColumnend="4"
+
+
+    selOptions.style.display="none"
+  }
+
+  const productsPage = () => {
+    defaultsAll();
+
+
+    Page=1;
+    selOptions.style.display=""
+    document.querySelectorAll(".box")[0].style.display="none"
+    document.querySelector(".hidePrice").style.display=""
+    
+
+
+    selOptions.children[0].style.display=""
+    selOptions.children[1].style.display=""
+    selOptions.children[2].style.display=""
+    selOptions.children[3].style.display="none"
+    selOptions.children[4].style.display="none"
+
+    selOptions.children[0].textContent="Box-1"
+    selOptions.children[1].textContent="Box-2"
+    selOptions.children[2].textContent="Box-3"
+    
+  }
+
+  const footerPage = () => {
+    defaultsAll();
+
+    Page=4;
+    selOptions.style.display=""
+
+    document.querySelectorAll(".box")[3].children[0].textContent="Logo-Url"
+    document.querySelector(".hidePrice").style.display="none"
+
+    selOptions.children[0].style.display="none"
+    selOptions.children[1].style.display="none"
+    selOptions.children[2].style.display="none"
+
+    document.querySelector(".logos").style.display="grid"
+
+
+    
+  }
+
+  const resetSelection =()=>{
+    Price=1;
+    selection1.className="selection1 activeSel"
+    selection2.className="selection2 sel"
+    selection3.className="selection3 sel"   
+ 
+  
+  }
+
+  const defaultPage = (element)=>{
+    Price=1;
+    document.querySelectorAll(".box").style=defaultBox
+    document.querySelectorAll(".boxs").style=defaultBoxs
+    document.querySelector(".buttons").style=defaultButtons
+    document.querySelectorAll(".but2")[1].style=defaultButs
+    document.querySelector(".textInput").style=defaultTextBox
+  
+
+  }
+
+  /*
+  const mediaPage =()=>{
+
+    setTimeout(() => {
+    resetAllInputs();
+    
+    document.querySelectorAll(".box")[0].children[0].textContent="Logo-1";
+    document.querySelectorAll(".box")[1].children[0].textContent="Logo-2";
+    document.querySelectorAll(".box")[2].children[0].textContent="Logo-3";
+    document.querySelectorAll(".box")[3].children[0].textContent="Logo-4";
+
+    document.querySelectorAll(".box")[1].style.display=""
+    document.querySelectorAll(".box")[1].children[2].style.display="none";
+    document.querySelectorAll(".box")[1].children[3].style.display="none";
+
+    document.querySelectorAll("input")[0].placeholder=defaultPlaceholder4
+    document.querySelectorAll("input")[1].placeholder=defaultPlaceholder4
+    document.querySelectorAll("input")[3].placeholder=defaultPlaceholder4
+
+
+    //https://picsum.photos/200
+    
+    document.querySelector(".textBox").style.display="none";
+    document.querySelector(".boxs").style.gridTemplateColumns=" 45% 45%"
+
+ 
+    document.querySelector(".buttons").style.gridRowStart="3"
+    document.querySelector(".buttons").style.gridRowEnd="5"
+    document.querySelector(".buttons").style.gridColumnStart="1"
+    document.querySelector(".buttons").style.gridColumnEnd="3"
+    document.querySelector(".buttons").style.marginTop="0"
+    document.querySelector(".buttons").style.flexDirection="row"
+    document.querySelector(".buttons").style.marginLeft="20%"
+    document.querySelector(".buttons").style.marginRight="20%"
+
+    document.querySelectorAll(".but2")[0].style.padding="5%"
+    document.querySelectorAll(".but2")[1].style.padding="5%"
+    document.querySelectorAll(".but2")[0].style.width="30%"
+    document.querySelectorAll(".but2")[1].style.width="30%"
+
+    }, 0);
+
+  }
+
+  */
+                  
+  const resetAllInputs = ()=>{
+
+    document.querySelectorAll("input")[0].value=""
+    document.querySelectorAll("input")[1].value=""
+    document.querySelectorAll("input")[2].value=""
+    document.querySelectorAll("input")[3].value=""
+    document.querySelectorAll("input")[4].value=""
+
+    document.querySelectorAll("input")[0].placeholder=defaultPlaceholder1
+    document.querySelectorAll("input")[1].placeholder=defaultPlaceholder2_1
+    document.querySelectorAll("input")[2].placeholder=defaultPlaceholder2_2
+    document.querySelectorAll("input")[3].placeholder=defaultPlaceholder3
+    document.querySelectorAll("input")[4].placeholder=defaultPlaceholder4
+
+  }                
+
+
+</script>
+
+</html>

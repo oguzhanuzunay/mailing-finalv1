@@ -1,0 +1,36 @@
+<div class="row">
+        <div class="col-md-6 offset-md-3" style="background-color: #fff;margin-top: 25px;padding:20px;">
+
+<h3><a class="btn btn-secondary" href="/adminPage"><i class="fa fa-plus"></i> Create New</a> User List
+<a class="btn btn-secondary float-right" href="/login"><i class="fas fa-sign-out-alt"></i> Sing Out</a>
+</h3>  
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>User Name</th>
+            <th>Password</th>
+            <th>Type</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+        
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.userName}}</td>
+            <td>{{this.password}}</td>
+            <td>{{this.type}}</td>
+            <td>{{this.email}}</td>
+            <td>
+                <a href="/adminPage/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/adminPage/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+</div>
+</div>
